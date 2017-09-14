@@ -13,10 +13,11 @@ const posts = Array.from({length: 50}, () => ({
 
 const comments = Array.from({length: 500}, () => ({
   id: faker.random.uuid(),
+  postId: faker.random.arrayElement(posts).id,
   authorId: faker.random.arrayElement(users).id,
   content: faker.lorem.sentences(Math.random() * 3)
 }));
 
 exports.users = users;
 exports.posts = posts;
-exports.commments = comments;
+exports.comments = comments;

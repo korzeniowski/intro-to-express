@@ -9,11 +9,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.json(fakeUsers.filter(u => u.id === req.params.id));
+  res.json(fakePosts.filter(p => p.id === req.params.id));
 });
 
-router.get('/posts/:id/comments', (req, res) => {
-  res.send(`Comments for Post ID ${req.params.id}`);
+router.get('/:id/comments', (req, res) => {
+  res.json(fakeComments.filter(c => c.postId === req.params.id));
 });
 
 module.exports = router;
