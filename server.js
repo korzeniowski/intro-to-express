@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const morgan = require('morgan');
 
 const users = require('./routes/users');
 const posts = require('./routes/posts');
@@ -7,6 +8,8 @@ const posts = require('./routes/posts');
 const PORT = 4567;
 
 const app = express();
+
+app.use(morgan('tiny'));
 
 app.use('/users', users);
 app.use('/posts', posts);
