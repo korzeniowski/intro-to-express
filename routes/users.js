@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.json(fakeUsers.filter(u => u.id === req.params.id));
+  res.json(fakeUsers.find(u => u.id === req.params.id));
 });
 
 router.get('/:id/posts', (req, res) => {

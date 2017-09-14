@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.json(fakePosts.filter(p => p.id === req.params.id));
+  res.json(fakePosts.find(p => p.id === req.params.id));
 });
 
 router.get('/:id/comments', (req, res) => {
