@@ -5,7 +5,12 @@ const fakePosts = require('../fakeData').posts;
 const fakeComments = require('../fakeData').comments;
 
 router.get('/', (req, res) => {
-  res.json(fakePosts);
+  let posts = fakePosts;
+  if (req.query.ids) {
+    let ids = [].concat(req.query.ids);
+    posts = posts.filter(p => ids.includes(p.id));
+  }
+  res.json(posts);
 });
 
 router.get('/:id', (req, res) => {

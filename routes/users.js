@@ -5,7 +5,12 @@ const fakeUsers = require('../fakeData').users;
 const fakePosts = require('../fakeData').posts;
 
 router.get('/', (req, res) => {
-  res.json(fakeUsers);
+  let users = fakeUsers;
+  if (req.query.ids) {
+    let ids = [].concat(req.query.ids);
+    users = users.filter(u => ids.includes(u.id));
+  }
+  res.json(users);
 });
 
 router.get('/:id', (req, res) => {

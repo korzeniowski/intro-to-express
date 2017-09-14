@@ -1,5 +1,7 @@
 const faker = require('faker');
 
+faker.seed(12345);
+
 const users = Array.from({length: 10}, () => ({
   id: faker.random.uuid(),
   name: faker.name.findName()
