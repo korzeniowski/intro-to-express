@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const fakePosts = require('../fakeData').posts;
-const fakeComments = require('../fakeData').comments;
+const fakeData = require('../fakeData');
+
+const fakePosts = fakeData.posts;
+const fakeComments = fakeData.comments;
 
 router.get('/', (req, res) => {
   let posts = fakePosts;
